@@ -1,51 +1,52 @@
 --DROP DATABASE IF EXIST bteam;
 --DROP USER IF EXISTS postgres;
---CREATE USER postgres WITH PASSWORD 'himitu';
+--CREATE USER student WITH PASSWORD 'himitu';
 --CREATE DATEBASE bteam OWNER owner ENCODING 'UTF8';
 --\c bteam
 --会員テーブルの作成
 CREATE TABLE customer (
-    customer_id SERIAL PRIMARY KEY NOT NULL,
-    customer_name VARCHAR(20) NOT NULL,
-    customer_address VARCHAR(100) ,
-    customer_tell VARCHAR(20),
-    customer_mail VARCHAR(255) NOT NULL,
-    customer_birthday DATE ,
-    customer_password VARCHAR(255),
-    join_date DATE ,
-    leave_date DATE
+    cID SERIAL PRIMARY KEY NOT NULL,
+    cNAME VARCHAR(20) NOT NULL,
+    cAddress VARCHAR(100) ,
+    cTell VARCHAR(20),
+    cMail VARCHAR(255) NOT NULL,
+    cBday DATE ,
+    cPass VARCHAR(255),
+    cJdate DATE ,
+    cWdate DATE
     );
     
 --資料テーブルの作成
 CREATE TABLE item (
-    document_id SERIAL PRIMARY KEY,
-    isbn_code INTEGER NOT NULL,
-    title TEXT NOT NULL,
-    group_code INTEGER NOT NULL,
-    writer TEXT NOT NULL,
-    publisher TEXT NOT NULL,
-    publication_date TEXT NOT NULL,
-    arrival_date DATE NOT NULL,
-    rental_date DATE NOT NULL,
-    return_date DATE NOT NULL,
-    rental_id INTEGER NOT NULL,
-    reserve_id INTEGER NOT NULL
+    dID SERIAL PRIMARY KEY,
+    isbn INTEGER NOT NULL,
+    dName TEXT NOT NULL,
+    cCode INTEGER NOT NULL,
+    aName TEXT NOT NULL,
+    pName TEXT NOT NULL,
+    aDate TEXT NOT NULL,
+    pdate DATE NOT NULL,
+    renDate DATE NOT NULL,
+    retDate DATE NOT NULL,
+    renCID INTEGER NOT NULL,
+    resCID INTEGER NOT NULL
     );
     
     
 
 --管理者テーブルの作成
 CREATE TABLE owner (
-    owner_id SERIAL PRIMARY KEY,
-    owner_name VARCHAR(20) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    aID SERIAL PRIMARY KEY,
+    aName VARCHAR(20) NOT NULL,
+    aPass VARCHAR(255) NOT NULL,
+    aMail VARCHAR(255) NOT NULL
     );
 --貸出履歴テーブル
 CREATE TABLE history (
-    customer_id INTEGER PRIMARY KEY,
-    document_id INTEGER,
-    rental_date DATE,
-    return_date DATE
+    cID INTEGER PRIMARY KEY,
+    dID INTEGER,
+    renDate DATE,
+    retDate DATE
     );
     
 -- テーブルの所有者設定
@@ -60,3 +61,8 @@ INSERT INTO (customer_name,customer_mail) values ('阿井三郎','aaaaaaaa');
  
 SELECT * FROM customer;
 DROP TABLE customer;
+SELECT rental_date FROM item;
+
+SELECT rental_date FROM item WHERE document_id=1;
+
+UPDATE item SET rental_date = current_date,return_date = current_date + 10 WHERE document_id = 1;
