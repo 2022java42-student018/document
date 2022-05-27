@@ -1,7 +1,9 @@
 --DROP DATABASE IF EXIST bteam;
 --DROP USER IF EXISTS postgres;
 --CREATE USER student WITH PASSWORD 'himitu';
---CREATE DATEBASE bteam OWNER owner ENCODING 'UTF8';
+--CREATE DATABASE bteam OWNER student ENCODING 'UTF8';
+--psql bteam student;
+--パスワード:himitu
 --\c bteam
 --会員テーブルの作成
 CREATE TABLE customer (
@@ -15,7 +17,9 @@ CREATE TABLE customer (
     cJdate DATE ,
     cWdate DATE
     );
-    
+    INSERT INTO  customer (cNAME,cAddress,cTell,cMail,cBday,cJdate)VALUES('佐藤一郎','東京','090-012-123','aaa@abc','1999-04-01','2022-05-27');
+     INSERT INTO  item (isbn,)VALUES()
+
 --資料テーブルの作成
 CREATE TABLE item (
     dID SERIAL PRIMARY KEY,
@@ -25,13 +29,14 @@ CREATE TABLE item (
     aName TEXT NOT NULL,
     pName TEXT NOT NULL,
     aDate TEXT NOT NULL,
-    pdate DATE NOT NULL,
-    renDate DATE NOT NULL,
-    retDate DATE NOT NULL,
-    renCID INTEGER NOT NULL,
-    resCID INTEGER NOT NULL
+    pDate DATE NOT NULL,
+    renDate DATE ,
+    retDate DATE ,
+    renCID INTEGER ,
+    resCID INTEGER 
     );
-    
+    INSERT INTO  item (isbn,dName,cCode,aName,pName,aDate,pDate,)
+                VALUES('4906638015','Java の世界','9','スティーブ','キングベアー出版','2022-05-27','1999-02-12');
     
 
 --管理者テーブルの作成
