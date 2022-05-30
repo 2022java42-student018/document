@@ -12,14 +12,10 @@ CREATE TABLE customer (
     cTell TEXT,
     cMail VARCHAR(255) NOT NULL,
     cBday DATE ,
-   -- cPass VARCHAR(255),
     cJdate DATE ,
     cWdate DATE
     );
-    INSERT INTO  customer (cNAME,cAddress,cTell,cMail,cBday,cJdate)VALUES('佐藤一郎','東京','090-012-123','aaa@abc','1999-04-01','2022-05-27');
-     INSERT INTO  item (isbn,)VALUES()
      
-SELECT cmail FROM customer WHERE cmail = 'aaa@abc';
 
 --資料テーブルの作成
 CREATE TABLE item (
@@ -36,8 +32,6 @@ CREATE TABLE item (
     renCID INTEGER ,
     resCID INTEGER 
     );
-    INSERT INTO item(isbn,dName,cCode,aName,pName,aDate,pDate,)VALUES('4906638015','Java の世界','9','スティーブ','キングベアー出版','2022-05-27','1999-02-12');
-    
 
 --管理者テーブルの作成
 CREATE TABLE owner (
@@ -53,23 +47,6 @@ CREATE TABLE history (
     renDate DATE NOT NULL,
     retDate DATE
     );
-    
--- テーブルの所有者設定
-
---ALTER TABLE member OWNER TO owner;
 
 -- 利用者テーブルのサンプルデータ
-INSERT INTO customer (customer_name) values ('阿井一郎');
-INSERT INTO customer(customer_name,customer_mail) values ('阿井三郎','aaaaaaaa');
-INSERT INTO (customer_name,customer_mail) values ('阿井三郎','aaaaaaaa');
- INSERT INTO item VALUES(1,1,'アアア','111','aaa','bbb','1234','1990-04-12','1990-04-12','1990-04-12','456','789');
- 
-SELECT * FROM customer;
-DROP TABLE customer;
-SELECT rental_date FROM item;
 
-SELECT rental_date FROM item WHERE document_id=1;
-
-UPDATE item SET rental_date = current_date,return_date = current_date + 10 WHERE document_id = 1;
-
-SELECT cID,cname,caddress,cmail,cbday,cJdate,cwdate FROM customer WHERE cmail =1;
