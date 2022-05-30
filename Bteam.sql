@@ -7,11 +7,11 @@ DROP TABLE customer;
 --âÔàıÉeÅ[ÉuÉãÇÃçÏê¨
 CREATE TABLE customer (
     cID SERIAL PRIMARY KEY NOT NULL,
-    cNAME VARCHAR(20) NOT NULL,
-    cAddress VARCHAR(100) ,
-    cTell TEXT,
+    cName VARCHAR(20) NOT NULL,
+    cAddress VARCHAR(100) NOT NULL,
+    cTell TEXT NOT NULL,
     cMail VARCHAR(255) NOT NULL,
-    cBday DATE ,
+    cBday DATE NOT NULL,
     cJdate DATE ,
     cWdate DATE
     );
@@ -25,8 +25,8 @@ CREATE TABLE item (
     cCode INTEGER NOT NULL,
     aName TEXT NOT NULL,
     pName TEXT NOT NULL,
-    aDate TEXT NOT NULL,
     pDate DATE NOT NULL,
+    aDate DATE ,
     renDate DATE ,
     retDate DATE ,
     renCID INTEGER ,
