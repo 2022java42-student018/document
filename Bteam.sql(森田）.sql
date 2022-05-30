@@ -1,13 +1,7 @@
 --DROP DATABASE IF EXIST bteam;
 --DROP USER IF EXISTS postgres;
 --CREATE USER student WITH PASSWORD 'himitu';
-<<<<<<< HEAD
---CREATE DATABASE bteam OWNER student ENCODING 'UTF8';
---psql bteam student;
---パスワード:himitu
-=======
 --CREATE DATEBASE bteam OWNER student ENCODING 'UTF8';
->>>>>>> cc0485fe66371002bb8963593f7427eac9349e60
 --\c bteam
 --会員テーブルの作成
 CREATE TABLE customer (
@@ -21,47 +15,29 @@ CREATE TABLE customer (
     cJdate DATE ,
     cWdate DATE
     );
-<<<<<<< HEAD
-    INSERT INTO  customer (cNAME,cAddress,cTell,cMail,cBday,cJdate)VALUES('佐藤一郎','東京','090-012-123','aaa@abc','1999-04-01','2022-05-27');
-     INSERT INTO  item (isbn,)VALUES()
-
-=======
     
     
 INSERT INTO customer (cNAME,cAddress,cTell,cMail,cBday,cJdate) values ('佐藤一郎','東京','090-1234-5678','abc@com','1999-04-01','2022-05-27');
->>>>>>> cc0485fe66371002bb8963593f7427eac9349e60
 --資料テーブルの作成
 CREATE TABLE item (
     dID SERIAL PRIMARY KEY,
-    isbn INTEGER NOT NULL,
+    isbn BIGINT NOT NULL,
     dName TEXT NOT NULL,
     cCode INTEGER NOT NULL,
     aName TEXT NOT NULL,
     pName TEXT NOT NULL,
-<<<<<<< HEAD
-    aDate TEXT NOT NULL,
-    pDate DATE NOT NULL,
-    renDate DATE ,
-    retDate DATE ,
-    renCID INTEGER ,
-    resCID INTEGER 
-    );
-    INSERT INTO  item (isbn,dName,cCode,aName,pName,aDate,pDate,)
-                VALUES('4906638015','Java の世界','9','スティーブ','キングベアー出版','2022-05-27','1999-02-12');
-=======
     aDate DATE NOT NULL,
     pDate DATE NOT NULL,
     renDate DATE,
     retDate DATE,
-    renCID INTEGER,
-    resCID INTEGER
+    renCID INTEGER FOREIGN KEY,
+    resCID INTEGER FOREIGN KEY
     );
     
 DROP TABLE item
-INSERT INTO item (dID,isbn,dName,cCode,aName,pName,aDate,pDate) values ('11111','22222','赤','33333','佐藤','青','2022-04-01','2022-05-01');   
+INSERT INTO item (dID,isbn,dName,cCode,aName,pName,aDate,pDate,renCID,resCID) values ('11111','22222','赤','33333','佐藤','青','2022-04-01','2022-05-01','4444','5555');   
   
   
->>>>>>> cc0485fe66371002bb8963593f7427eac9349e60
     
 
 --管理者テーブルの作成
